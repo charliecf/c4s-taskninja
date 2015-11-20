@@ -2,7 +2,7 @@
 'use strict';
 
 var app = angular
-	.module('TaskNinjaApp'), [
+	.module('TaskNinjaApp', [
     'ngAnimate',
     'ngResource',
     'ngRoute',
