@@ -9,6 +9,7 @@ app.controller('NavController', function($scope, $location, Auth) {
 
 	$scope.logout = function() {
 		Auth.logout();
+		toaster.pop('success', 'Logged out successfully!');
 		console.log("Logged out!");
 		$location.path('/');
 	};

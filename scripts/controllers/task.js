@@ -3,7 +3,7 @@
 /*global Firebase*/
 'use strict';
 
-app.controller('TaskController', function($scope, FURL, $firebase, $location, $routeParams) {
+app.controller('TaskController', function($scope, FURL, $firebase, $location, $routeParams, toaster) {
 	var ref = new Firebase(FURL);
 	var fbTasks = $firebase(ref.child('task')).$asArray();
 	var taskId = $routeParams.taskId;
@@ -18,6 +18,7 @@ app.controller('TaskController', function($scope, FURL, $firebase, $location, $r
 
 	$scope.updateTask = function(task) {
 		$scope.selectedTask.$save(task);
+		toaster.pop('success', "Task is updated.");
 		$location.path('/browse');
 	};
 
@@ -26,6 +27,7 @@ app.controller('TaskController', function($scope, FURL, $firebase, $location, $r
 	$scope.postTask = function(task) {
 		fbTasks.$add(task);
 		console.log(task);
+		toaster.pop('success', "Task is created.");
 		$location.path('/browse');
 	};
 

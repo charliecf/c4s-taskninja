@@ -7,7 +7,8 @@ var app = angular
     'ngAnimate',
     'ngResource',
     'ngRoute',
-    'firebase'
+    'firebase',
+    'toaster'
 	])
   .constant('FURL', 'https://c4s-taskninja.firebaseio.com/')
   .config(function ($routeProvider) {
