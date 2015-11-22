@@ -17,14 +17,14 @@ var app = angular
       })
       .when('/login', {
         templateUrl: 'views/login.html',
-        controller: 'TaskController'
-      })
+        controller: 'AuthController'
+      }) 
       .when('/register', {
         templateUrl: 'views/register.html',
-        controller: 'TaskController'
+        controller: 'AuthController'
       })
       .when('/post', {
-        templateUrl: 'views/register.html',
+        templateUrl: 'views/post.html',
         controller: 'TaskController'
       })
       .when('/edit/:taskId', {
