@@ -16,13 +16,15 @@ var app = angular
         templateUrl: 'views/main.html'
       })
       .when('/login', {
-        templateUrl: 'views/login.html'
+        templateUrl: 'views/login.html',
+        controller: 'TaskController'
       })
       .when('/register', {
-        templateUrl: 'views/register.html'
+        templateUrl: 'views/register.html',
+        controller: 'TaskController'
       })
       .when('/post', {
-        templateUrl: 'views/post.html',
+        templateUrl: 'views/register.html',
         controller: 'TaskController'
       })
       .when('/edit/:taskId', {
