@@ -45,10 +45,28 @@
 					<div class="col-md-8">
 						<h3>Task title here</h3>
 						<span>
-							
+							<img ng-src="" class="img-circle gravatar">
+							Posted by Charlie Feng - 
+							<span at-time-ago="1421840368791"></span>&nbsp;
+							<span class="label status open">open</span>
 						</span>
 					</div>
 					<div class="col-md-4 title">
+						<div class="price-tag">
+							$150
+
+							<div ng-show="true">
+								<div class="btn-group">
+									<a href="" class="btn btn-warning">Admin</a>
+									<a href="" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="" data-toggle="modal" data-target="#ediModal">EDIT TASK</a></li>
+										<li class="divider"></li>
+										<li><a href="" ng-click="">CANCEL TASK</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>	
 				</div>
 				<br>
