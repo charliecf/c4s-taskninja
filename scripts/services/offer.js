@@ -4,7 +4,7 @@
 /*global Firebase*/
 'use strict';
 
-app.factory('Offer', function(FURL, $firebase) {
+app.factory('Offer', function(FURL, $firebase, $q) {
 
 	var ref= new Firebase(FURL);
 
@@ -19,7 +19,24 @@ app.factory('Offer', function(FURL, $firebase) {
 			if (task_offers) {
 				return task_offers.$add(offer);
 			}
-		}	
+		},
+
+		isOfferred: function(taskId) {
+			if(user && user.provider) {
+				var d = $q.defer();
+
+				$firebase(ref.child('offers').child(taskId).orderByChild("uid")
+					.equalTo(user.uid))
+					.$asArray()
+					.$loaded().then(function(data) {
+						d.resolve(data.length > 0);
+					}, function() {
+						d.reject(false);
+					});
+
+				return d.promise;
+			}
+		}
 
 	};
 
