@@ -7,6 +7,7 @@
 app.factory('Offer', function(FURL, $firebase, $q) {
 
 	var ref= new Firebase(FURL);
+	var user = Auth.user;
 
 	var Offer = {
 		offers: function(taskId) {

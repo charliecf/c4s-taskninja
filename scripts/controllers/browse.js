@@ -25,6 +25,11 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Task,
 		// We check isTaskCreator only if user signedIn 
 		// so we don't have to check every time normal guests open the task
 		if($scope.signedIn()) {
+
+			Offer.isOfferred(task.$id).then(function(data) {
+				$scope.alreadyOffered = data;
+			});
+
 			// Check if the current login user is the creator of selected task
 			$scope.isTaskCreator = Task.isCreator;
 			
