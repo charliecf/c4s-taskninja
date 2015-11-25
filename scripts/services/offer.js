@@ -4,7 +4,7 @@
 /*global Firebase*/
 'use strict';
 
-app.factory('Offer', function(FURL, $firebase, $q) {
+app.factory('Offer', function(FURL, $firebase, $q, Auth) {
 
 	var ref= new Firebase(FURL);
 	var user = Auth.user;
@@ -37,6 +37,18 @@ app.factory('Offer', function(FURL, $firebase, $q) {
 
 				return d.promise;
 			}
+		},
+
+		isMaker: function(offer) {
+			return (user && user.provider && user.provider.uid === offer.uid);
+		},
+
+		getOffer: function(taskId, offerId) {
+			return $firebase(ref.child('offers').child(taskId).child(offerId));
+		},
+
+		cancelOffer: function(taskId, offerId) {
+			return this.getOffer(taskId, offerId).$remove();
 		}
 
 	};
