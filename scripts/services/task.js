@@ -47,7 +47,7 @@ app.factory('Task', function(FURL, $firebase, Auth) {
 
 					return $firebase(ref.child('user_tasks').child(task.runner)).$push(obj);
 				});
-		}.
+		},
 
 		editTask: function(task) {
 			var t = this.getTask(task.$id);
