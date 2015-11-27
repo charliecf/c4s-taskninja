@@ -28,8 +28,7 @@ app.factory('Task', function(FURL, $firebase, Auth) {
 						title: task.title
 					};
 
-					$firebase(ref.child('user_tasks').child(task.poster)).$push(obj);
-					return newTask;
+					return $firebase(ref.child('user_tasks').child(task.poster)).$push(obj);
 			});
 		},
 
